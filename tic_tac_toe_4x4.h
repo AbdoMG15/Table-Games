@@ -125,7 +125,7 @@ void four_X_O_Board<T>::display_board() {
         for (int j = 0; j < this->columns; j++) {
             cout  << setw(2) << (this->board[i][j] ? this->board[i][j] : ' ') << " |";
         }
-        cout << "\n-------------------";
+        cout << "\n------------------";
     }
     cout << endl;
 }
