@@ -133,8 +133,8 @@ bool WTTT_Board<T>::is_win() {
     for(int i = 0; i < this->rows; i++) {
         
         if(this->board[0][i] != 0 && this->board[1][i] != 0 && this->board[2][i] != 0) {
-            std::string verticalLine = {this->board[0][i], this->board[1][i], this->board[2][i]};
-            std::string reverseVerticalLine = {this->board[2][i], this->board[1][i], this->board[0][i]};
+            string verticalLine = {this->board[0][i], this->board[1][i], this->board[2][i]};
+            string reverseVerticalLine = {this->board[2][i], this->board[1][i], this->board[0][i]};
             if(dicLines.find(verticalLine) != dicLines.end()) {
                 cout << "Word \"" << GREEN << verticalLine << RESET << "\" was made!\n";
                 return true;
@@ -147,8 +147,8 @@ bool WTTT_Board<T>::is_win() {
 
         
         if(this->board[i][0] != 0 && this->board[i][1] != 0 && this->board[i][2] != 0) {
-            std::string horizontalLine = {this->board[i][0], this->board[i][1], this->board[i][2]};
-            std::string reverseHorizontalLine = {this->board[i][2], this->board[i][1], this->board[i][0]};
+            string horizontalLine = {this->board[i][0], this->board[i][1], this->board[i][2]};
+            string reverseHorizontalLine = {this->board[i][2], this->board[i][1], this->board[i][0]};
             if(dicLines.find(horizontalLine) != dicLines.end()) {
                 cout << "Word \"" << GREEN << horizontalLine << RESET << "\" was made!\n";
                 return true;

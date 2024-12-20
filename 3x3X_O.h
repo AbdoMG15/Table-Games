@@ -85,7 +85,7 @@ inverseX_O_Board<T>::~inverseX_O_Board() {
 
 template <typename T>
 bool inverseX_O_Board<T>::update_board(int x, int y, T mark) {
-    if (!second_loop) {
+    if (!second_loop) {//second loop == false.
         if (x >= 0 && x < this->rows && y >= 0 && y < this->columns && (this->board[x][y] == 0 || mark == 0)) {
             if (mark == 0) {
                 this->n_moves--;
