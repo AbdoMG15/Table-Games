@@ -102,7 +102,7 @@ bool four_X_O_Board<T>::update_board(int x, int y, T mark) {
         }
     }
     if (!show_message) {
-        cout << "\nInvalid input or invaild move , enter it again\n";
+        cout << "\nInvalid input or invalid move , enter it again\n";
     }
     return false;
 }
