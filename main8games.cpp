@@ -52,7 +52,7 @@ int main() {
 
 
         } else if (choice == '2') {
-            cout << GREEN << "running game 2 (3x3 inverse tic tac toe)... \n" << RESET ;
+            cout << GREEN << "running game 2 (four in a row)... \n" << RESET ;
             connect_4 game2;
             game2.main();
 
