@@ -254,24 +254,20 @@ bool UTTT_Board<T>::is_win() {
 
 template <typename T>
 bool UTTT_Board<T>::is_draw() {
-    bool overallDraw = true; // Assume the game is a draw unless proven otherwise
+    bool overallDraw = true;
 
-    // Iterate over each small board (3x3)
     for (int t = 0; t < 3; t++) {
         for (int k = 0; k < 3; k++) {
             bool isFull = true;
             char winner = 0;
 
-            // Check rows and columns for a winner in the small board
             for (int i = 0; i < 3; i++) {
-                // Row check
                 if (this->board[t * 3 + i][k * 3 + 0] == this->board[t * 3 + i][k * 3 + 1] &&
                     this->board[t * 3 + i][k * 3 + 1] == this->board[t * 3 + i][k * 3 + 2] &&
                     this->board[t * 3 + i][k * 3 + 0] != 0) {
                     winner = this->board[t * 3 + i][k * 3 + 0];
                 }
 
-                // Column check
                 if (this->board[t * 3 + 0][k * 3 + i] == this->board[t * 3 + 1][k * 3 + i] &&
                     this->board[t * 3 + 1][k * 3 + i] == this->board[t * 3 + 2][k * 3 + i] &&
                     this->board[t * 3 + 0][k * 3 + i] != 0) {
@@ -279,7 +275,6 @@ bool UTTT_Board<T>::is_draw() {
                 }
             }
 
-            // Check diagonals for a winner in the small board
             if (this->board[t * 3 + 0][k * 3 + 0] == this->board[t * 3 + 1][k * 3 + 1] &&
                 this->board[t * 3 + 1][k * 3 + 1] == this->board[t * 3 + 2][k * 3 + 2] &&
                 this->board[t * 3 + 0][k * 3 + 0] != 0) {
@@ -292,7 +287,6 @@ bool UTTT_Board<T>::is_draw() {
                 winner = this->board[t * 3 + 0][k * 3 + 2];
             }
 
-            // Check if the small board is full
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (this->board[t * 3 + i][k * 3 + j] == 0) {
@@ -301,9 +295,7 @@ bool UTTT_Board<T>::is_draw() {
                 }
             }
 
-            // If the small board is full and has no winner, mark it as a draw
             if (isFull && winner == 0) {
-                // Update all cells in the small board to '#'
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 3; j++) {
                         this->board[t * 3 + i][k * 3 + j] = '#';
@@ -312,7 +304,6 @@ bool UTTT_Board<T>::is_draw() {
                 }
             }
 
-            // If a small board isn't full or has a winner, the game isn't a draw yet
             if (!isFull || winner != 0) {
                 overallDraw = false;
             }
