@@ -163,12 +163,10 @@ template <typename T>
 bool UTTT_Board<T>::is_win() {
     char bigBoard[9] = {0};
 
-    // Iterate over 3x3 sub-boards
     for (int t = 0; t < 3; t++) {
         for (int k = 0; k < 3; k++) {
             char winner = 0;
 
-            // Check rows in the sub-board
             for (int i = 0; i < 3; i++) {
                 if (this->board[t * 3 + i][k * 3 + 0] == this->board[t * 3 + i][k * 3 + 1] &&
                     this->board[t * 3 + i][k * 3 + 1] == this->board[t * 3 + i][k * 3 + 2] &&
@@ -177,7 +175,6 @@ bool UTTT_Board<T>::is_win() {
                 }
             }
 
-            // Check columns in the sub-board
             for (int i = 0; i < 3; i++) {
                 if (this->board[t * 3 + 0][k * 3 + i] == this->board[t * 3 + 1][k * 3 + i] &&
                     this->board[t * 3 + 1][k * 3 + i] == this->board[t * 3 + 2][k * 3 + i] &&
@@ -186,7 +183,6 @@ bool UTTT_Board<T>::is_win() {
                 }
             }
 
-            // Check diagonals in the sub-board
             if (this->board[t * 3 + 0][k * 3 + 0] == this->board[t * 3 + 1][k * 3 + 1] &&
                 this->board[t * 3 + 1][k * 3 + 1] == this->board[t * 3 + 2][k * 3 + 2] &&
                 this->board[t * 3 + 0][k * 3 + 0] != 0) {
@@ -199,11 +195,9 @@ bool UTTT_Board<T>::is_win() {
                 winner = this->board[t * 3 + 0][k * 3 + 2];
             }
 
-            // If a winner is found, update the big board and all elements in the small board
             if (winner != 0) {
                 bigBoard[t * 3 + k] = winner;
 
-                // Update all elements of the small board to the winner's symbol
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 3; j++) {
                         this->board[t * 3 + i][k * 3 + j] = winner;
