@@ -105,7 +105,6 @@ bool fivex_o_board<T>::update_board(int x, int y, T mark) {
 
 template <typename T>
 void fivex_o_board<T>::display_board() {
-    cout <<"   "<< "player X"<<" : " << player_x_wins << "   |  " << "player O" << " : " << player_o_wins;
     player_o_wins=0 , player_x_wins=0;
     for (int i = 0; i < this->rows; i++) {
         cout << "\n| ";
